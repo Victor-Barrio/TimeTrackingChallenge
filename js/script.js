@@ -14,25 +14,24 @@ const updateHours = (timeFrame, activeTimeElement) => {
   timeMonthly.classList.remove("active");
   activeTimeElement.classList.add("active");
 
-  // Adding the info of the hours with Ajax
-  $.ajax({
-    url: "../data.json",
-    type: "GET",
-    success: function (data) {
-      // Working with every card of the DOM
-      actualHrs.forEach((actual, index) => {
-        const previous = previousHrs[index]; // Getting the element
-        const activityData = data[index]; // Getting the corresponent data from the JSON
+  // Adding the info of the JSON
+  fetch("./data.json")
+   .then(response => {
+     if (!response.ok) throw new Error("Error fetching data");
+     return response.json();
+   })
+   .then(data => {
+     // Working with every card of the DOM
+     actualHrs.forEach((actual, index) => {
+       const previous = previousHrs[index]; // Getting the element
+       const activityData = data[index]; // Getting the corresponent data from the JSON
 
-        // Actualizing the hours
-        actual.textContent = `${activityData.timeframes[timeFrame].current}hrs`;
-        previous.textContent = `Last ${timeFrame} - ${activityData.timeframes[timeFrame].previous}hrs`;
-      });
-    },
-    error: function (xhr, status) {
-      console.log(`Error on load ${xhr} in the ${status}`);
-    },
-  });
+       // Actualizing the hours
+       actual.textContent = `${activityData.timeframes[timeFrame].current}hrs`;
+       previous.textContent = `Last ${timeFrame} - ${activityData.timeframes[timeFrame].previous}hrs`;
+     });
+   })
+   .catch(error => console.log(error));
 };
 
 // Adding the event listeners

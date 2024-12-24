@@ -44,4 +44,4 @@ Users should be able to:
 
 ### What I learned
 
-In this project i worked with the JQuery library and AJAX request to get data from a JSON file. I also used the CSS custom properties to create a responsive design. 
+In this project i worked with the JQuery library and AJAX request to get data from a JSON file, but when I uploaded the page to GItHub pages I see that didn't work, so i changed to fetch for my page working online. I also used the CSS custom properties to create a responsive design. 
