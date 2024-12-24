@@ -16,7 +16,7 @@ const updateHours = (timeFrame, activeTimeElement) => {
 
   // Adding the info of the hours with Ajax
   $.ajax({
-    url: "../data.json",
+    url: "./data.json",
     type: "GET",
     success: function (data) {
       // Working with every card of the DOM
