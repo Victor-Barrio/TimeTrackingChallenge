@@ -1,0 +1,268 @@
+/* Starting the CSS and doing the manual reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* The general layout of the page */
+body {
+  /* Colors */
+  /* Primary colors */
+  --blue: hsl(246, 80%, 60%);
+  --light-orange: hsl(15, 100%, 70%);
+  --soft-blue: hsl(195, 74%, 62%);
+  --light-red: hsl(348, 100%, 68%);
+  --lime-green: hsl(145, 58%, 55%);
+  --violet: hsl(264, 64%, 52%);
+  --soft-orange: hsl(43, 84%, 65%);
+
+  /* Neutral colors */
+  --very-dark-blue: hsl(226, 43%, 10%);
+  --dark-blue: hsl(235, 46%, 20%);
+  --desaturated-blue: hsl(235, 45%, 61%);
+  --pale-blue: hsl(236, 100%, 87%);
+  --white: hsl(0, 0%, 100%);
+
+  /* Font */
+  font-family: "Rubik", sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  color: var(--white);
+
+  /* Display viewport */
+  display: grid;
+  grid-template-rows: auto, repeat(6, 1fr);
+  background-color: var(--very-dark-blue);
+  padding: 80px 24.5px;
+  gap: 25px;
+}
+
+/* The person report card */
+.reportFor {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--dark-blue);
+  border-radius: 12px;
+}
+
+.reportFor .person {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: var(--blue);
+  border-radius: 12px;
+  padding: 33px 28px;
+  gap: 18px;
+}
+
+.reportFor .person img {
+  width: 70px;
+  height: auto;
+  border: 3px solid var(--white);
+  border-radius: 50%;
+}
+
+.reportFor .person .who {
+  display: flex;
+  flex-direction: column;
+  gap: 6.5px;
+}
+
+.reportFor .person .who p {
+  font-size: 15px;
+  color: var(--desaturated-blue);
+  font-weight: 400;
+}
+
+.reportFor .person .who h1 {
+  font-size: 24px;
+  font-weight: 300;
+}
+
+.reportFor .timeOptions ul {
+  list-style: none;
+  display: flex;
+  padding: 22px 35px;
+  justify-content: space-between;
+}
+
+.reportFor .timeOptions ul li a {
+  text-decoration: none;
+  color: var(--desaturated-blue);
+  font-size: 18px;
+}
+
+.reportFor .timeOptions ul li a.active {
+  color: var(--white);
+}
+
+/* The Info cards */
+.cards {
+  display: grid;
+  grid-template-rows: 40px 1fr;
+  border-radius: 12px;
+  background-color: var(--light-orange);
+}
+
+.cards .backgroundCard {
+  position: relative;
+  overflow: hidden;
+}
+
+.cards .backgroundCard img {
+  width: 25%;
+  height: auto;
+  position: absolute;
+  top: -10px;
+  right: 15px;
+}
+
+.cards .infoCard {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--dark-blue);
+  padding: 20px;
+  border-radius: 12px;
+  gap: 10px;
+}
+
+.cards .infoCard .title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cards .infoCard .title h2,
+.cards .infoCard .title p {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.cards .infoCard .title p,
+.cards .infoHrs .previousHours {
+  color: var(--desaturated-blue);
+}
+
+.cards .infoCard .infoHrs {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.cards .infoCard .infoHrs .actualHours {
+  font-size: 30px;
+  font-weight: 300;
+}
+
+/* Personalized colors for every card */
+.play {
+  background-color: var(--soft-blue);
+}
+
+.study {
+  background-color: var(--light-red);
+}
+
+.exercise {
+  background-color: var(--lime-green);
+}
+
+.social {
+  background-color: var(--violet);
+}
+
+.selfCare {
+  background-color: var(--soft-orange);
+}
+
+/* Media Querys for the desktop version */
+@media screen and (min-width: 1240px) {
+  body {
+    display: grid;
+    padding: 0;
+    align-content: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  /* Adding a container for centring the page */
+  .container {
+    width: 1110px;
+    height: 515px;
+    display: grid;
+    grid-template: repeat(2, 1fr) / repeat(4, 1fr);
+    gap: 30px;
+  }
+
+  /* Doing the reporFor section in 1 column enterily */
+  .reportFor {
+    display: grid;
+    grid-template-rows: 340px 1fr;
+    grid-row: 1/3;
+  }
+
+  .reportFor .person {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 33px 28px;
+    gap: 35px;
+  }
+
+  .reportFor .person img {
+    width: 80px;
+    height: auto;
+  }
+
+  .reportFor .person .who p {
+    font-size: 18px;
+  }
+
+  .reportFor .person .who h1 {
+    font-size: 39px;
+  }
+
+  .reportFor .timeOptions ul {
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  /* The Info cards */
+  .cards {
+    display: grid;
+    grid-template-rows: 50px 1fr;
+    border-radius: 14px;
+  }
+
+  .cards .backgroundCard img {
+    width: 35%;
+  }
+
+  .exercise .backgroundCard img {
+    top: 0;
+  }
+
+  .cards .infoCard {
+    padding: 30px;
+    gap: 30px;
+  }
+
+  .cards .infoCard .infoHrs {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .cards .infoCard .infoHrs .actualHours {
+    font-size: 50px;
+    font-weight: 300;
+  }
+
+  /* Active States */
+  .cards .infoCard:hover {
+    background-color: var(--blue);
+    cursor: pointer;
+  }
+}
